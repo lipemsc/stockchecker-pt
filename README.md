@@ -1,4 +1,4 @@
-# Globaldata Stockchecker
+# Globaldata Stock Checker
 #### Project to check stock from Portuguese store Globaldata
 
 ## How to use
