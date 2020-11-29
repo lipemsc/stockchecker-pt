@@ -1,8 +1,9 @@
-const http = require('https');
+const https = require('https');
 const HTMLParser = require('node-html-parser');
+const pageToCheck = "https://www.globaldata.pt/grafica-msi-geforce-rtx-3080-gaming-x-trio-10g-4719072762544";
+const parseOptions = {blockTextElements:{script:true,noscript:true,style:true,pre:true}};
 
-
-var request = http.get("https://www.pcdiga.com/processador-amd-ryzen-5-5600x-6-core-3-7ghz-c-turbo-4-6ghz-35mb-sktam4", (response) => {
+var request = https.get(pageToCheck, (response) => {
   var htmlpage = "";
   
   response.on('data', (data) => {
@@ -11,9 +12,10 @@ var request = http.get("https://www.pcdiga.com/processador-amd-ryzen-5-5600x-6-c
 
   response.on('end', () => {
     //console.log(htmlpage);
-    var page = HTMLParser.parse(htmlpage);
+    var page = HTMLParser.parse(htmlpage,parseOptions);
     //console.log(page);
-    console.log(page.querySelectorAll(".stock_message")[0].outerHTML);
+    page.querySelectorAll(".stock-shops")[0].removeWhitespace();
+    console.log(page.querySelectorAll(".stock-shops")[0].childNodes[0].innerHTML);
 
   });
 
