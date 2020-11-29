@@ -1,5 +1,10 @@
-# Globaldata Stock Checker
-#### Project to check stock from Portuguese store Globaldata
+# Stock Checker for Portuguese stores
+#### Project to check stock from Portuguese stores
+
+## Supported stores
+
+- Globaldata
+- PCDiga
 
 ## How to use
 1. Install node.js

@@ -1,5 +1,5 @@
 {
-  "name": "stockchecker-pt-globaldata",
+  "name": "stockchecker-pt",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,8 +7,15 @@
     "test": "node index.js"
   },
   "author": "",
-  "license": "GPL-2.0",
-  "repository": "github:lipemsc/stockchecker-pt-globaldata",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lipemsc/stockchecker-pt/issues"
+  },
+  "homepage": "https://github.com/lipemsc/stockchecker-pt#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lipemsc/stockchecker-pt.git"
+  },
   "dependencies": {
     "node-html-parser": "^2.0.0"
   }
