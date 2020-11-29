@@ -1,5 +1,5 @@
 # Stock Checker for Portuguese stores
-#### Project to check stock for Portuguese stores
+#### Project to check stock of Portuguese stores
 
 ## Supported stores
 
