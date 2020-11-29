@@ -8,6 +8,7 @@
   },
   "author": "",
   "license": "GPL-2.0",
+  "repository": "github:lipemsc/stockchecker-pt-globaldata",
   "dependencies": {
     "node-html-parser": "^2.0.0"
   }
