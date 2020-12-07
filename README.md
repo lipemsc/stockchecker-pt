@@ -11,6 +11,4 @@
 
 1. Run `npm install`
 
-1. Edit the link in the `index.js` file.
-
-1. Run `node index.js`
+1. Run `node index.js <url>`
