@@ -21,6 +21,19 @@ function globaldata(pageData) {
   return parsedPage.querySelectorAll(".stock-shops")[0].childNodes[0].innerHTML;
 }
 
+function pccomponentes(pageData) {
+  var parsedPage = HTMLParser.parse(pageData,parseOptions);
+  var productInfo = JSON.parse(parsedPage.querySelector("#microdata-product-script").innerHTML);
+  if(productInfo.offers.availability == "http://schema.org/InStock" || productInfo.offers.availability == "http://schema.org/LimitedAvailability" || productInfo.offers.availability == "http://schema.org/OnlineOnly" || productInfo.offers.availability == "http://schema.org/PreSale")
+    return "Em stock";
+  else if(productInfo.offers.availability == "http://schema.org/PreOrder")
+    return "Pré-Reserva";
+  else if(productInfo.offers.availability == "http://schema.org/Discontinued" || productInfo.offers.availability == "http://schema.org/OutOfStock" || productInfo.offers.availability == "http://schema.org/SoldOut")
+    return "Esgotado";
+  else
+    return "Erro";
+}
+
 function getPage(url) {
   var htmlPage = "";
   var request = https.get(pageURL.toString(), (response) => {
@@ -49,6 +62,9 @@ function processPage (pageData) {
     case "www.globaldata.pt": 
       return globaldata(pageData);
       break;
+    case "pccomponentes.pt":
+    case "www.pccomponentes.pt":
+      return pccomponentes(pageData);
     default:
       return false;
   }
@@ -65,6 +81,8 @@ if (typeof process.argv[2] !== 'undefined') {
         case "www.pcdiga.com":
         case "globaldata.pt": 
         case "www.globaldata.pt":
+        case "pccomponentes.pt":
+        case "www.pccomponentes.pt":
           break;
         default:
           console.log("Erro: Website não suportado");

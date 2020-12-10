@@ -5,6 +5,7 @@
 
 - Globaldata
 - PCDiga
+- PcComponentes
 
 ## How to use
 1. Install node.js
