@@ -4,7 +4,7 @@
 ## Supported stores
 
 - Globaldata
-- PCDiga
+- PCDiga (temporarily not working)
 - PcComponentes
 
 ## How to use
