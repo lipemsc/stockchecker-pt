@@ -7,12 +7,18 @@ function printHelp() {
 }
 
 function pcdiga(pageData) {
-  if (pageData.slice(pageData.search("is_in_stock") + 14, pageData.search("is_in_stock") + 15) == "1")
-    return "Em stock";
-  else if(pageData.slice(pageData.search("is_in_stock") + 14, pageData.search("is_in_stock") + 15) == "0")
-    return "Esgotado";
-  else
-    return "Erro"
+  var parsedPage = HTMLParser.parse(pageData,parseOptions);
+  try {
+    parsedPage.querySelectorAll("#skrey_estimate_date_product_page_wrapper")[0].removeWhitespace();
+    return parsedPage.querySelectorAll("#skrey_estimate_date_product_page_wrapper")[0].childNodes[0].innerHTML;
+  }
+  catch {
+    //console.log(pageData.search("skrey_estimate_date_product_page_wrapper"));
+    if(pageData.search("skrey_estimate_date_product_page_wrapper") === -1)
+      return "Erro";
+    else
+      return "Em stock";
+  }
 }
 
 function globaldata(pageData) {
