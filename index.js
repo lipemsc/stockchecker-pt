@@ -23,8 +23,8 @@ function pcdiga(pageData) {
 
 function globaldata(pageData) {
   var parsedPage = HTMLParser.parse(pageData,parseOptions);
-  parsedPage.querySelectorAll(".stock-shops")[0].removeWhitespace();
-  return parsedPage.querySelectorAll(".stock-shops")[0].childNodes[0].innerHTML;
+  parsedPage.querySelectorAll(".availability-text")[0].removeWhitespace();
+  return parsedPage.querySelectorAll(".availability-text")[0].childNodes[1].innerHTML.slice(9);
 }
 
 function pccomponentes(pageData) {
